@@ -5,7 +5,7 @@ PORT = 1787  # The port used by the server
 
 #Connect to the server
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.connect((HOST, 1787))
+    s.connect((HOST, PORT))
 
     #Convert the connection into a stream we can read and write
     stream = s.makefile("rw")
