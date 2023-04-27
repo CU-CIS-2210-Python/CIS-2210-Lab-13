@@ -15,8 +15,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         messageToSend = input("Type your message: ")
         stream.write(messageToSend + "\n")
         stream.flush()
+        if messageToSend == "BYE":
+            break
 
         #Wait for a message from the other program and print it out
         print("Waiting...")
-        receivedMessage = stream.readline()
+        receivedMessage = stream.readline().strip()
+        if receivedMessage == "BYE":
+            break
         print(f"Got message: {receivedMessage.strip()}")
